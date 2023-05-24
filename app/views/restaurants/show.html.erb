@@ -1,0 +1,22 @@
+<h1>Choix du restaurant</h1>
+
+<h2><%= @restaurant.name %></h2>
+<h3><%= @restaurant.address %></h3>
+<h4><%= @restaurant.phone_number %></h4>
+<h5><%= @restaurant.category %></h5>
+<%= link_to "Restaurant List", restaurants_path %>
+
+<%= link_to "Delete",
+  restaurant_path(@restaurant),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+<a data-turbo-method="delete" data-turbo-confirm="Are you sure?" href="/restaurants/6"></a>
+<%= link_to "Review", new_restaurant_review_path(@restaurant) %>
+
+<li class="list-group-item">
+  <%= review.content %>
+  <%= link_to "Delete",
+    review_path(review),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+</li>
